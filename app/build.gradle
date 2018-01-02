@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "27.0.1"
+    defaultConfig {
+        applicationId "com.xun.liverobot"
+        minSdkVersion 19
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.gyf.barlibrary:barlibrary:2.2.5'
+    implementation 'com.android.support:recyclerview-v7:26.1.0'
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
+    compile('org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.1.0') {
+        exclude module: 'support-v4'
+    }
+    compile('org.eclipse.paho:org.eclipse.paho.android.service:1.1.1') {
+        exclude module: 'support-v4'
+    }
+    compile 'com.google.code.gson:gson:2.8.2'
+    //引入okhttp
+    compile 'com.squareup.okhttp3:okhttp:3.9.0'
+    //引入retrofit
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    //引入rxjava
+    compile 'io.reactivex.rxjava2:rxjava:2.1.0'
+    //引入Log拦截器，方便DEBUG模式输出log信息
+    compile 'com.squareup.okhttp3:logging-interceptor:3.9.0'
+    //引入rxjava适配器，方便rxjava与retrofit的结合
+    compile 'com.jakewharton.retrofit:retrofit2-rxjava2-adapter:1.0.0'
+    //引入json转换器，方便将返回的数据转换为json格式
+    compile 'com.squareup.retrofit2:converter-gson:2.3.0'
+    //引入rxandroid
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'com.tencent.ilivesdk:ilivesdk:1.7.2'
+    compile 'com.tencent.livesdk:livesdk:1.1.4'
+    compile 'com.xwang:commlib:1.0.6'
+}
